@@ -1,0 +1,20 @@
+{
+    "Authorization": {
+        "DEFAULT": {
+            "target": "in-page",
+            "text": "Something went wrong!"
+        },
+        "401": {
+            "E-1.1": {
+                "text": "Username and password don't match.",
+                "target": "in-page"
+            }
+        },
+        "403": {
+            "E-2.1": {
+                "text": "Your organization is deactivated.",
+                "target": "in-page"
+            }
+        }
+    }
+}
