@@ -70,4 +70,12 @@ export class StorageService {
         // localStorage.removeItem(LOCAL_STORAGE_PREFIX + '.' + key);
     }
 
+    public setSessionStorage (key: string, value) {
+
+    }
+
+    public getSessionStorage (key: string) {
+
+    }
+
 }

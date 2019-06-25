@@ -11,3 +11,6 @@ export const DEFAULT_ERROR_MESSAGE = {
 export const MODULE_NAME = {
   Authorization: 'Authorization'
 };
+
+
+export const SESSION_STORAGE_PREFIX = '';
