@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   configPath: '../config/',
   api: 'http://stubs.vsse.org',
+  contentUrl: 'https://stubs.vsse.org/api/sp-rec/',
 
 };
 
