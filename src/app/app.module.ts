@@ -14,6 +14,7 @@ import { CustomTranslateLoader } from './shared/services/custom-translate-loader
 import { configLoaderFactory } from './shared/services/commen.loader';
 import { SpinnerComponent } from './shared/components/spinner/spinner.component';
 import { LoaderService } from './shared/services/spinner.service';
+import { StorageService } from './shared/services/storage.service';
 
 
 
@@ -23,11 +24,6 @@ export function HttpLoaderFactory(http: HttpClient) {
 export function createTranslateLoader(http: HttpClient) {
   return new CustomTranslateLoader(http, '/i18n/', '.json');
 }
-
-// export function configLoaderFactory(config: ConfigLoaderService) {
-//   return () => config.load();
-// }
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +43,7 @@ export function createTranslateLoader(http: HttpClient) {
     }),
   ],
   providers: [
+    StorageService,
     LoaderService,
     ConfigLoaderService,
     {
