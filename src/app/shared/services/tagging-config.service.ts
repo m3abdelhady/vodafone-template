@@ -11,6 +11,7 @@ export class TaggingConfigService {
                 if (event.url) {
                     console.log(event.url);
                     this.taggingHelperService.sendView(event.url);
+                    this.taggingHelperService.track('data', event.url);
                 }
             }
         });
