@@ -15,6 +15,7 @@ import { configLoaderFactory } from './shared/services/commen.loader';
 import { SpinnerComponent } from './shared/components/spinner/spinner.component';
 import { LoaderService } from './shared/services/spinner.service';
 import { StorageService } from './shared/services/storage.service';
+import { TaggingConfigService } from './shared/services/tagging-config.service';
 
 
 
@@ -46,6 +47,7 @@ export function createTranslateLoader(http: HttpClient) {
     StorageService,
     LoaderService,
     ConfigLoaderService,
+    TaggingConfigService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: CustomHttpInterceptor,
