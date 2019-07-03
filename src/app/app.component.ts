@@ -1,16 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { LoaderService } from './shared/services/spinner.service';
+import { StorageService } from './shared/services/storage.service';
+import { TaggingConfigService } from './shared/services/tagging-config.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  showLoader: boolean;
+  constructor(private loaderService: LoaderService, private storage: StorageService, private taggingConfigService: TaggingConfigService) { }
   title = 'vodafone-template';
-
-  constructor(private translate: TranslateService) {
-    translate.setDefaultLang('en');
+  ngOnInit() {
+    // controlling enabling and disabling the spinner observed in loaderService using BehaviorSubject object
+    this.loaderService.status.subscribe((val: boolean) => {
+      this.showLoader = val;
+    });
+    this.taggingConfigService.routeChange();
   }
-
 }
