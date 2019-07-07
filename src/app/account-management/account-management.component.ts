@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-account-management',
   templateUrl: './account-management.component.html',
   styleUrls: ['./account-management.component.css']
 })
-export class AccountManagementComponent implements OnInit {
+export class AccountManagementComponent  {
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
 }

@@ -16,6 +16,15 @@ import { SpinnerComponent } from './shared/components/spinner/spinner.component'
 import { LoaderService } from './shared/services/spinner.service';
 import { StorageService } from './shared/services/storage.service';
 import { TaggingConfigService } from './shared/services/tagging-config.service';
+import { TaggingHelperService } from './shared/services/tagging-helper.service';
+import { VodafoneTextComponent } from './shared/components/vodafone-text/vodafone-text.component';
+import { SharedModule } from './shared/shared.module';
+import { LoginComponent } from './authentication/login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CustomErrorHandlerService } from './shared/services/custom-error-handler.service';
+import { AuthenticationService } from './authentication/authentication.service';
+import { AuthenticationGuard } from './shared/guards/authentication.guard';
+
 
 
 
@@ -34,7 +43,10 @@ export function createTranslateLoader(http: HttpClient) {
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
     RouterModule,
+    SharedModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -44,10 +56,14 @@ export function createTranslateLoader(http: HttpClient) {
     }),
   ],
   providers: [
+    AuthenticationGuard,
+    AuthenticationService,
     StorageService,
     LoaderService,
+    CustomErrorHandlerService,
     ConfigLoaderService,
     TaggingConfigService,
+    TaggingHelperService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: CustomHttpInterceptor,

@@ -1,0 +1,29 @@
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    margin: auto;
+    margin-top: 7%;
+    text-align: center;
+    font-family: arial;
+}
+
+.profile {
+    color: grey;
+    font-size: 22px;
+}
+
+.card button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: #E11111;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 17px;
+    background-color: #E9BBBB;
+}
+
+.card button:hover {
+    opacity: 0.7;
+}

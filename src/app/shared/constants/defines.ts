@@ -1,8 +1,9 @@
 import { environment } from '../../../environments/environment';
 
 export const API_URL = {
-  login: environment.api + 'user/login'
-}
+  // login: environment.api + 'user/login'
+  login: environment.apiUrl + 'v1/apixoauth2password/oauth2/token'
+};
 
 export const DEFAULT_ERROR_MESSAGE = {
   text: 'DEFAULT ERROR MESSAGE.',

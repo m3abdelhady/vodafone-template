@@ -9,11 +9,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthenticationRoutingModule } from './authentication-routing.module';
 import { LoginComponent } from './login/login.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
-import { SharedModule } from '../shared.module';
+import { SharedModule } from '../shared/shared.module';
+
 
 
 @NgModule({
   imports: [
+    CommonModule,
     SharedModule,
     AuthenticationRoutingModule,
     FormsModule,
