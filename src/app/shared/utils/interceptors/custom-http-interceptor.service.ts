@@ -5,6 +5,7 @@ import 'rxjs/add/operator/catch';
 import { Injectable } from '@angular/core';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpHeaders, HttpParams } from '@angular/common/http';
 import { HttpResponse } from '@angular/common/http';
+import { throwError } from 'rxjs';
 
 
 
@@ -47,7 +48,7 @@ export class CustomHttpInterceptor implements HttpInterceptor {
             if (event instanceof HttpResponse) {
             }
         }).catch((error, event) => {
-            return Observable.throw(error);
+            return throwError(error);
         });
 
     }

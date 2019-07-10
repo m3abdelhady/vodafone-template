@@ -4,11 +4,12 @@ import { VodafoneTextComponent } from './components/vodafone-text/vodafone-text.
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
+import { ErrorTemplateComponent } from './components/error-template/error-template.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, TranslateModule, RouterModule,
     ReactiveFormsModule],
-  declarations: [VodafoneTextComponent],
-  exports: [VodafoneTextComponent]
+  declarations: [VodafoneTextComponent, ErrorTemplateComponent],
+  exports: [VodafoneTextComponent],
 })
 export class SharedModule { }

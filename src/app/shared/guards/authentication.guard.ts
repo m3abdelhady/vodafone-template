@@ -12,7 +12,7 @@ export class AuthenticationGuard implements CanActivate, CanActivateChild {
     /** The canActivate method returns a boolean indicating whether or not navigation to a route should be allowed  */
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean> | Promise<boolean> {
         if (!this.auth.isAuthenticated()) {
-            this.router.navigate([config.authentication.route]);
+            this.router.navigate([config.authentication.login.route]);
             return false;
         }
         return true;

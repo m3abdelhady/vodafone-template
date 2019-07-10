@@ -7,6 +7,7 @@ import { ConfigLoaderService } from '../utils/config-loader.service';
 export function configLoaderFactory(config: ConfigLoaderService, translateService: TranslateService) {
     return () => {
         config.load();
+       // translateService.addLangs(['default', 'defaultAr']);
         // set default as defaultLang will load a local json file as current language if the word didn't available in cms
         translateService.setDefaultLang('default');
         // use en will used external cms as a current language

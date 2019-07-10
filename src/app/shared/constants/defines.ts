@@ -10,7 +10,9 @@ export const DEFAULT_ERROR_MESSAGE = {
 };
 
 export const MODULE_NAME = {
-  Authorization: 'Authorization'
+  Authorization: 'Authorization',
+  Common: 'Common',
+  accountManagement: 'account-management'
 };
 
 

@@ -4,5 +4,5 @@
     </header>
     <app-text type="text" formControlName="email" placeholder="{{'Authorization.Login.email_label' | translate}}" id="username" (contentChange)="validateEmail()" [showInlineHint]="invalidMsg"></app-text>
     <app-text type="password" formControlName="password" placeholder="{{'Authorization.Login.password_placeholder' | translate}}" id="password"></app-text>
-    <button (click)="submitLogin()" type="submit" [disabled]="!loginForm.valid">{{'Authorization.Login.login_btn' | translate}}</button>
+    <button (click)="submitLogin()" type="submit">{{'Authorization.Login.login_btn' | translate}}</button>
 </form>

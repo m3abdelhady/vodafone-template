@@ -6,6 +6,7 @@ import { TaggingConfigService } from './shared/services/tagging-config.service';
 import { AuthenticationService } from './authentication/authentication.service';
 import { Router } from '@angular/router';
 import { config } from 'src/config/pages-config';
+import { LoggerService } from './shared/utils/logger.service';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,8 @@ import { config } from 'src/config/pages-config';
 export class AppComponent implements OnInit {
   showLoader: boolean;
   constructor(private loaderService: LoaderService, private storage: StorageService, private taggingConfigService: TaggingConfigService,
-              private auth: AuthenticationService, private route: Router) { }
+    private auth: AuthenticationService, private route: Router, private translate: TranslateService,
+    private loggerService: LoggerService) { }
   title = 'vodafone-template';
   ngOnInit() {
     // controlling enabling and disabling the spinner observed in loaderService using BehaviorSubject object
@@ -23,14 +25,24 @@ export class AppComponent implements OnInit {
       this.showLoader = val;
     });
     this.taggingConfigService.routeChange();
-    this.userAuthenticate();
+    //  this.userAuthenticate();
   }
   /**  check If the user is authenticated to access app or routing to login page */
-  userAuthenticate() {
-    if (this.auth.isAuthenticated()) {
-      this.route.navigate([config.accountManagement.route]);
+  // userAuthenticate() {
+  //   if (this.auth.isAuthenticated()) {
+  //     this.route.navigate([config.accountManagement.accountOverview.route]);
+  //   } else {
+  //  this.route.navigate([config.authentication.login.route]);
+  //   }
+  // }
+  setLang(lang) {
+    if (lang === 'ar') {
+      this.translate.setDefaultLang('defaultAr');
+      this.translate.use('ar');
     } else {
-      this.route.navigate([config.authentication.route]);
+      this.translate.setDefaultLang('default');
+      this.translate.use('en');
     }
+
   }
 }

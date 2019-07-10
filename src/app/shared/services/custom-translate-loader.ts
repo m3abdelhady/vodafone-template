@@ -15,11 +15,14 @@ export class CustomTranslateLoader extends TranslateHttpLoader {
     getTranslation(lang?: string) {
         // get current language from a local json file
         if (lang === 'default') {
-            console.log(this.prefix + 'en' + this.suffix);
             return this.customHttp.get(this.prefix + 'en' + this.suffix);
-        // get current language from server
+            // get current language from server
         } else if (lang === 'en') {
             return this.customHttp.get(RoutesConfig.content);
+        } else if (lang === 'ar') {
+            return this.customHttp.get(RoutesConfig.contentAr);
+        } else if (lang === 'defaultAr') {
+            return this.customHttp.get(this.prefix + 'ar' + this.suffix);
         }
     }
 }

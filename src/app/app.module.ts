@@ -1,4 +1,4 @@
-import { CustomHttpInterceptor } from './shared/utils/custom-http-interceptor.service';
+import { CustomHttpInterceptor } from './shared/utils/interceptors/custom-http-interceptor.service';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
@@ -21,9 +21,12 @@ import { VodafoneTextComponent } from './shared/components/vodafone-text/vodafon
 import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './authentication/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CustomErrorHandlerService } from './shared/services/custom-error-handler.service';
+import { ErrorHandlerService } from './shared/services/error-handler.service';
 import { AuthenticationService } from './authentication/authentication.service';
 import { AuthenticationGuard } from './shared/guards/authentication.guard';
+import { LoaderInterceptor } from './shared/utils/interceptors/loader.interceptor.service';
+import { HttpErrorInterceptor } from './shared/utils/interceptors/http-error.interceptor.service';
+import { LoggerService } from './shared/utils/logger.service';
 
 
 
@@ -56,17 +59,29 @@ export function createTranslateLoader(http: HttpClient) {
     }),
   ],
   providers: [
+    LoggerService,
     AuthenticationGuard,
     AuthenticationService,
     StorageService,
     LoaderService,
-    CustomErrorHandlerService,
+    ErrorHandlerService,
     ConfigLoaderService,
     TaggingConfigService,
     TaggingHelperService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: CustomHttpInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptor,
+      deps: [ErrorHandlerService],
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptor,
       multi: true
     },
     {

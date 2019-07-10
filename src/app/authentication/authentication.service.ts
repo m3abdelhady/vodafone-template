@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { StorageService } from '../shared/services/storage.service';
+import { throwError } from 'rxjs';
 
 
 @Injectable()
@@ -27,8 +28,7 @@ export class AuthenticationService {
             password
         };
         return this.http.post(url, body, options).pipe(map((res: any) => {
-            this.storage.setLocalStorage('token', res.access_token)
-            console.log(res.access_token);
+            this.storage.setLocalStorage('token', res.access_token);
             return res;
         }));
     }
