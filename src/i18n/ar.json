@@ -1,5 +1,5 @@
 {
-    "VERSION_NUMBER": "روز",
+    "VERSION_NUMBER": "000",
     "App": "تطبيق فودافون",
     "Authorization": {
         "Login": {
@@ -12,22 +12,22 @@
             "login_btn": "الدخول",
             "forget_password": "!نسيت كلمة السر",
             "no_account": "هل نسيت حسابك؟",
-            "sign_up": "Sign up",
-            "login": "Log In",
-            "invalidMail": "Email Not Valid!",
+            "sign_up": "تسجيل حساب",
+            "login": "الدخول",
+            "invalidMail": "بريدك الالكترونى غير صحيح!",
             "validation_message": {
-                "email_required": "Please enter email.",
-                "email_invalid": "Please enter valid email.",
-                "password_required": "Please enter password."
+                "email_required": "ادخل الايميل",
+                "email_invalid": "بريدك الالكترونى غير صحيح !",
+                "password_required": "ادخل كلمة السر"
             }
         }
     },
     "account-management": {
         "overview": {
-            "name": "Vodafone User",
-            "profile": "Vodafone Employee Profile",
-            "profile_type": "Postpaid Account",
-            "logout_btn": "Log Out"
+            "name": "عميل فودافون",
+            "profile": "Vodafone Employee باقة",
+            "profile_type": "حساب فاتورة",
+            "logout_btn": "خروج"
         }
     }
 }

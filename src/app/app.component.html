@@ -6,7 +6,7 @@
 </div>
 <app-spinner [showSpinner]="showLoader" [fullSpinner]="loaderService.isFullSpinner"></app-spinner>
 <div>
-    <button (click)="setLang('en')">Language: EN</button>
-    <button (click)="setLang('ar')">Language: AR</button>
+    <button (click)="switchLang('en')">Language: EN</button>
+    <button (click)="switchLang('ar')">Language: AR</button>
 </div>
 <router-outlet></router-outlet>
