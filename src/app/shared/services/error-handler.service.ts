@@ -7,11 +7,13 @@ import { Router, ActivatedRoute } from '@angular/router';
 import * as pagesConfig from '../../../config/pages-config';
 import { Location } from '@angular/common';
 import { config } from '../../../config/pages-config';
+import { RoutesConfig } from '../constants/config.routes';
 
 @Injectable()
 
 /** Class representing gloabal error handling. */
 export class ErrorHandlerService {
+  public exceptionRoutes = [RoutesConfig.content, RoutesConfig.contentAr];
 
   private pagesConfig: any;
   /** The errorsMessages object holds all errors in the error messages json file. */
@@ -208,6 +210,12 @@ export class ErrorHandlerService {
   }
   public getModuleName() {
     return this.getRouteUsingURL(this.router.url).moduleName;
+  }
+
+  public exceptionRoutesCheck(url) {
+    return this.exceptionRoutes.find((route) => {
+      return url.toString().includes(route.toString());
+    });
   }
 
 }
