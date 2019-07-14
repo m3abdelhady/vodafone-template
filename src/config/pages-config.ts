@@ -24,6 +24,11 @@ export let config = {
             'name': 'accountOverview',
             'route': '/accountManagement/accountOverview',
             'moduleName': MODULE_NAME.accountManagement
+        },
+        'accountDetails':{
+            'name': 'accountDetails',
+            'route': '/accountManagement/accountDetails',
+            'moduleName': MODULE_NAME.accountManagement
         }
     },
     'generalError': {

@@ -35,6 +35,8 @@ export class AppComponent implements OnInit {
       this.translate.setDefaultLang('default');
       this.translate.use('en');
     }
-
+  }
+  back() {
+      window.history.back();
   }
 }

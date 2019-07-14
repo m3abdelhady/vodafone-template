@@ -18,7 +18,7 @@ const routes: Routes = [
   },
   {
     path: config.accountManagement.name,
-    loadChildren: () => AccountManagementModule,
+  loadChildren: () => AccountManagementModule,
     canActivate: [AuthenticationGuard]
   },
   {

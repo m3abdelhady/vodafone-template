@@ -1,4 +1,4 @@
-import { SESSION_STORAGE_PREFIX } from './../constants/defines';
+import { STORAGE_PREFIX, STROGE_TYPE } from './../constants/defines';
 import {StorageService} from './storage.service';
 import {Injectable} from '@angular/core';
 
@@ -22,11 +22,11 @@ export class RoutesCachingService {
     if (this.cachedData[moduleName]) {
             if (replaceOldData) {
                 this.cachedData[moduleName] = data;
-                this.storageService.setSessionStorage(SESSION_STORAGE_PREFIX + moduleName, data);
+                this.storageService.setSessionStorage(STORAGE_PREFIX + moduleName, data);
             }
         } else {
             this.cachedData[moduleName] = data;
-            this.storageService.setSessionStorage(SESSION_STORAGE_PREFIX + moduleName, data);
+            this.storageService.setSessionStorage(STORAGE_PREFIX + moduleName, data);
         }
     }
 
@@ -38,7 +38,7 @@ export class RoutesCachingService {
         if (this.cachedData[moduleName]) {
             return this.cachedData[moduleName];
         } else {
-            return this.storageService.getSessionStorage(SESSION_STORAGE_PREFIX + moduleName);
+            return this.storageService.getSessionStorage(STORAGE_PREFIX + moduleName);
         }
     }
 
@@ -52,7 +52,7 @@ export class RoutesCachingService {
         if (this.cachedData[moduleName]) {
             delete this.cachedData[moduleName];
         }
-        this.storageService.remove(SESSION_STORAGE_PREFIX + moduleName);
+        this.storageService.remove(STORAGE_PREFIX + moduleName, STROGE_TYPE.sessionStorage);
     }
 
 }

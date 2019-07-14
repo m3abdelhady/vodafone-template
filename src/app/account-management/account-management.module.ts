@@ -8,8 +8,8 @@ import { CommonModule } from '@angular/common';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
-
-
+import { AccountManagementService } from './account-management.service';
+import { AccountDetailsComponent } from './account-details/account-details.component';
 
 @NgModule({
   imports: [
@@ -19,7 +19,8 @@ import { SharedModule } from '../shared/shared.module';
     ReactiveFormsModule,
     TranslateModule
   ],
-  declarations: [ AccountManagementComponent, AccountOverviewComponent ],
-  providers: [AccountManagementComponent]
+  declarations: [AccountManagementComponent, AccountOverviewComponent, AccountDetailsComponent],
+  providers: [AccountManagementService]
 })
-export class AccountManagementModule { }
+export class AccountManagementModule {
+}

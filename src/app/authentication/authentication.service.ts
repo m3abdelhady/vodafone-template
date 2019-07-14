@@ -1,4 +1,4 @@
-import { API_URL } from './../shared/constants/defines';
+import { API_URL, STROGE_TYPE } from './../shared/constants/defines';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
@@ -28,7 +28,7 @@ export class AuthenticationService {
             password
         };
         return this.http.post(url, body, options).pipe(map((res: any) => {
-            this.storage.setLocalStorage('token', res.access_token);
+            this.storage.setStorage('token', res.access_token, STROGE_TYPE.localStrorage);
             return res;
         }));
     }
