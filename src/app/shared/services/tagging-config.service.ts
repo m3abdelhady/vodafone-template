@@ -9,7 +9,6 @@ export class TaggingConfigService {
         this.router.events.forEach((event: NavigationEvent) => {
             if (event instanceof NavigationEnd) {
                 if (event.url) {
-                    console.log(event.url);
                     this.taggingHelperService.sendView(event.url);
                     this.taggingHelperService.track('data', event.url);
                 }

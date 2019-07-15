@@ -1,0 +1,33 @@
+{
+    "VERSION_NUMBER": "000",
+    "App": "تطبيق فودافون",
+    "Authorization": {
+        "Login": {
+            "head": "التسجيل",
+            "describtion": "الدخول الى حسابك",
+            "email_label": "البريد الالكترونى",
+            "email_placeholder": "بريدك الالكترونى",
+            "password_label": "كلمة السر",
+            "password_placeholder": "ادخل كلمة السر",
+            "login_btn": "الدخول",
+            "forget_password": "!نسيت كلمة السر",
+            "no_account": "هل نسيت حسابك؟",
+            "sign_up": "تسجيل حساب",
+            "login": "الدخول",
+            "invalidMail": "بريدك الالكترونى غير صحيح!",
+            "validation_message": {
+                "email_required": "ادخل الايميل",
+                "email_invalid": "بريدك الالكترونى غير صحيح !",
+                "password_required": "ادخل كلمة السر"
+            }
+        }
+    },
+    "account-management": {
+        "overview": {
+            "name": "عميل فودافون",
+            "profile": "Vodafone Employee باقة",
+            "profile_type": "حساب فاتورة",
+            "logout_btn": "خروج"
+        }
+    }
+}

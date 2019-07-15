@@ -1,0 +1,10 @@
+<div>
+    <div *ngIf="showInlineHint" class="warn-info">{{showInlineHint}}</div>
+    <span class="input-item">
+                <i class="fa fa-user-circle"></i>
+              </span>
+    <label *ngIf="label" for="{{id}}">{{label}}</label>
+    <div class="form-group col-xs-12 vodafone-text">
+        <input autocomplete="off " type="{{type}}" (keyup)="Change($event)" [(ngModel)]="value" class="form-control " id="{{id}} " [placeholder]="placeholder ">
+    </div>
+</div>

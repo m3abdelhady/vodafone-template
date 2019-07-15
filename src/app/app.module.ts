@@ -1,4 +1,4 @@
-import { CustomHttpInterceptor } from './shared/utils/custom-http-interceptor.service';
+import { CustomHttpInterceptor } from './shared/utils/interceptors/custom-http-interceptor.service';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
@@ -16,6 +16,18 @@ import { SpinnerComponent } from './shared/components/spinner/spinner.component'
 import { LoaderService } from './shared/services/spinner.service';
 import { StorageService } from './shared/services/storage.service';
 import { TaggingConfigService } from './shared/services/tagging-config.service';
+import { TaggingHelperService } from './shared/services/tagging-helper.service';
+import { VodafoneTextComponent } from './shared/components/vodafone-text/vodafone-text.component';
+import { SharedModule } from './shared/shared.module';
+import { LoginComponent } from './authentication/login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ErrorHandlerService } from './shared/services/error-handler.service';
+import { AuthenticationService } from './authentication/authentication.service';
+import { AuthenticationGuard } from './shared/guards/authentication.guard';
+import { LoaderInterceptor } from './shared/utils/interceptors/loader.interceptor.service';
+import { HttpErrorInterceptor } from './shared/utils/interceptors/http-error.interceptor.service';
+import { LoggerService } from './shared/utils/logger.service';
+
 
 
 
@@ -34,7 +46,10 @@ export function createTranslateLoader(http: HttpClient) {
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
     RouterModule,
+    SharedModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -44,13 +59,29 @@ export function createTranslateLoader(http: HttpClient) {
     }),
   ],
   providers: [
+    LoggerService,
+    AuthenticationGuard,
+    AuthenticationService,
     StorageService,
     LoaderService,
+    ErrorHandlerService,
     ConfigLoaderService,
     TaggingConfigService,
+    TaggingHelperService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: CustomHttpInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptor,
+      deps: [ErrorHandlerService],
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptor,
       multi: true
     },
     {

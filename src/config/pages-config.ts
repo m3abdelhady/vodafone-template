@@ -1,4 +1,5 @@
 import { AccountManagementRoutingModule } from './../app/account-management/account-management-routing.module';
+import { MODULE_NAME } from 'src/app/shared/constants/defines';
 export let config = {
     'authentication': {
         'name': 'authentication',
@@ -6,11 +7,13 @@ export let config = {
         'loadChildren': '../app/authentication/authentication.module#AuthenticationModule',
         'login': {
             'name': 'login',
-            'route': '/authorization/login'
+            'route': '/authentication/login',
+            'moduleName':MODULE_NAME.Authorization
         },
         'forget': {
             'name': 'forget',
-            'route': '/authorization/forget' 
+            'route': '/authentication/forget',
+            'moduleName': MODULE_NAME.Authorization
         }
     },
     'accountManagement': {
@@ -19,7 +22,13 @@ export let config = {
         'loadChildren': '../app/account-management/account-management.module#AccountManagementModule',
         'accountOverview': {
             'name': 'accountOverview',
-            'route': '/accountManagement/accountOverview'
+            'route': '/accountManagement/accountOverview',
+            'moduleName': MODULE_NAME.accountManagement
+        },
+        'accountDetails':{
+            'name': 'accountDetails',
+            'route': '/accountManagement/accountDetails',
+            'moduleName': MODULE_NAME.accountManagement
         }
     },
     'generalError': {

@@ -7,13 +7,18 @@
         "401": {
             "E-1.1": {
                 "text": "Username and password don't match.",
-                "target": "in-page"
+                "target": "navigate",
+                "redirect": "/authentication/login"
             }
         },
         "403": {
             "E-2.1": {
                 "text": "Your organization is deactivated.",
                 "target": "in-page"
+            },
+            "1026": {
+                "text": "Your organization is deactivated.",
+                "target": "navigate"
             }
         }
     }

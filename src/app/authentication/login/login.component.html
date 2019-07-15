@@ -1,18 +1,8 @@
-<p>
-  login works!
-</p>
-
-
-<form novalidate [formGroup]="loginForm" >
-  <div >
-      <label for="email" >{{'Authorization.Login.email_label' | translate}}</label>
-      <input type="email" formControlName="email" autocomplete="off" placeholder="{{'Authorization.Login.email_placeholder' | translate}}">
-  </div>
-  <div >
-      <label for="password" >{{'Authorization.Login.password_label' | translate}}</label>
-      <input type="password" formControlName="password" autocomplete="off" class="form__field" placeholder="{{'Authorization.Login.password_placeholder' | translate}}">
-  </div>
-  
-  <button  type="submit" (click)="submitLogin()">{{'Authorization.Login.login_btn' | translate}}</button>
-  
+<form class="login-form" [formGroup]="loginForm">
+    <header class="head-form">
+        <h2>{{'Authorization.Login.login' | translate}}</h2>
+    </header>
+    <app-text type="text" formControlName="email" placeholder="{{'Authorization.Login.email_label' | translate}}" id="username" (contentChange)="validateEmail()" [showInlineHint]="invalidMsg"></app-text>
+    <app-text type="password" formControlName="password" placeholder="{{'Authorization.Login.password_placeholder' | translate}}" id="password"></app-text>
+    <button (click)="submitLogin()" type="submit">{{'Authorization.Login.login_btn' | translate}}</button>
 </form>

@@ -1,7 +1,13 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div>
     <b>{{'App' | translate }} </b>
-    <img style="float: right" width="200" alt="vodafone Logo" src="https://upload.wikimedia.org/wikipedia/en/thumb/c/cc/Vodafone_2017_logo.svg/1280px-Vodafone_2017_logo.svg.png">
+    <button (click)="back()">BACK</button>
+    <P>{{'VERSION_NUMBER' | translate }} </P>
+    <img style="float: right" width="100" alt="vodafone Logo" src="https://upload.wikimedia.org/wikipedia/en/thumb/c/cc/Vodafone_2017_logo.svg/1280px-Vodafone_2017_logo.svg.png">
 </div>
 <app-spinner [showSpinner]="showLoader" [fullSpinner]="loaderService.isFullSpinner"></app-spinner>
+<div>
+    <button (click)="switchLang('en')">Language: EN</button>
+    <button (click)="switchLang('ar')">Language: AR</button>
+</div>
 <router-outlet></router-outlet>

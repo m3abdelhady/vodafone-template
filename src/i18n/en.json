@@ -1,5 +1,6 @@
 {
-    "App": "Vodafone Template App.",
+    "App": "vodafone template App",
+    "VERSION_NUMBER": "1539509828345",
     "Authorization": {
         "Login": {
             "head": "Sign in",
@@ -12,11 +13,21 @@
             "forget_password": "Forgot Your Password ?",
             "no_account": "Don't have an acocunt ?",
             "sign_up": "Sign up",
+            "login": "Log In",
+            "invalidMail": "Email Not Valid!",
             "validation_message": {
                 "email_required": "Please enter email.",
                 "email_invalid": "Please enter valid email.",
                 "password_required": "Please enter password."
             }
+        }
+    },
+    "account-management": {
+        "overview": {
+            "name": "Vodafone User",
+            "profile": "Vodafone Employee Profile",
+            "profile_type": "Postpaid Account",
+            "logout_btn": "Log Out"
         }
     }
 }

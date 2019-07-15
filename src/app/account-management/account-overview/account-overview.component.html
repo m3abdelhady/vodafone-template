@@ -1,3 +1,8 @@
-<p>
-  account-overview works!
-</p>
+<div class="card">
+    <img src="/assets/imgs/voda.jpg" alt="vodafone user" style="width:100%">
+    <h1>{{userProfile?.name}}</h1>
+    <p class="profile">{{'account-management.overview.profile' | translate}}</p>
+    <p>{{'account-management.overview.profile_type' | translate}}</p>
+    <button class="btn-details" (click)="moreDetails()">More Details ...</button>
+    <p><button class="btn-card" (click)="logOut()">{{'account-management.overview.logout_btn' | translate}}</button></p>
+</div>
