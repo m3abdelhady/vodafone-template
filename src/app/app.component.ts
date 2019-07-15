@@ -7,6 +7,7 @@ import { AuthenticationService } from './authentication/authentication.service';
 import { Router } from '@angular/router';
 import { config } from 'src/config/pages-config';
 import { LoggerService } from './shared/utils/logger.service';
+import { Languages } from './shared/constants/defines';
 
 @Component({
   selector: 'app-root',
@@ -28,12 +29,12 @@ export class AppComponent implements OnInit {
   }
   // switch between langauges
   switchLang(lang) {
-    if (lang === 'ar') {
-      this.translate.setDefaultLang('defaultAr');
+    if (lang === Languages.ar) {
+      this.translate.setDefaultLang(Languages.defaultAr);
       this.translate.use('ar');
     } else {
-      this.translate.setDefaultLang('default');
-      this.translate.use('en');
+      this.translate.setDefaultLang(Languages.defaultEn);
+      this.translate.use(Languages.en);
     }
   }
   back() {

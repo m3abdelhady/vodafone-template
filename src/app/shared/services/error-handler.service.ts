@@ -144,12 +144,12 @@ export class ErrorHandlerService {
    * @returns {String} the function returns the string with the modified placeholders
    */
   public queryBuilderForErrorMessagesFile(query: string, errorDetails: any): string {
-
+    debugger;
     // errorFullMatch: "$['{moduleName}']['{respCode}']['{errorName}']",
     //   respCodeLevelDefaultMatch: "$['{moduleName}']['{respCode}'].DEFAULT",
     //     ModuleLevelDefaultMatch: "$['{moduleName}'].DEFAULT"
 
-    if (errorDetails.errorStatusCode && errorDetails.moduleName && errorDetails.moduleName) {
+    if (errorDetails.errorStatusCode && errorDetails.moduleName && errorDetails.errorName) {
       return query.replace('{moduleName}', errorDetails.moduleName).replace('{respCode}', errorDetails.errorStatusCode)
         .replace('{errorName}', errorDetails.errorName);
     }
